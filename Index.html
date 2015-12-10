@@ -18,22 +18,29 @@
 
 </head>
 
-<body>
+<body ng-app="twitchApp">
 
-<div class="container" id="listContainer">
+<div class="container" id="listContainer" ng-controller="twitchController">
 
-  <ul id="usersList">
-    <li class="text-center">
-      <div class="btn-group">
-        <button type="button" class="btn btn-default active" id="allButton" onclick="this.blur()";>All</button>
-        <button type="button" class="btn btn-success" id="onlineButton" onclick="this.blur()">Online</button>
-        <button type="button" class="btn btn-danger" id="offlineButton" onclick="this.blur()">Offline</button>
-      </div>
-    </li>
-    <li id="searchLi">
-      <input type="text" class="form-control" id="userSearch">
-      <span class="glyphicon glyphicon-search"></span>
-    </li>
+  <div class="text-center">
+    <div class="btn-group">
+      <button type="button" class="btn btn-default active" id="allButton" onclick="this.blur()";>All</button>
+      <button type="button" class="btn btn-success" id="onlineButton" onclick="this.blur()">Online</button>
+      <button type="button" class="btn btn-danger" id="offlineButton" onclick="this.blur()">Offline</button>
+    </div>
+  </div>
+  <div id="searchLi">
+    <input type="text" class="form-control" id="userSearch">
+    <span class="glyphicon glyphicon-search"></span>
+  </div>
+
+  <ul id="usersList" ng-repeat="user in users">
+    <a ng-href="{{user.url}}">
+      <li>
+        <img ng-src="{{user.logo ? user.logo : 'images/anonymous_avatar.gif'}}" alt="logo" class="logo">
+        <span>{{user.name}}</span>
+      </li>
+    </a>
   </ul>
 </div>
 
@@ -42,13 +49,16 @@
 <!-- jquery version 1.11.3 -->
 <script src="jquery-1.11.3/jquery-1.11.3.min.js"></script>
 
-<!-- Latest compiled and minified JavaScript -->
+<!-- Minified Angular .js -->
+<script src="angular/angular.min.js"></script>
+
+<!-- Minified Bootstrap .js -->
 <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
 
 <!-- My own javascript -->
-<script src="myscript.js"></script>
+<script src="js/main.js"></script>
 
-<script src="custom functions.js"></script>
+<!-- <script src="custom functions.js"></script> -->
 
 </body>
 </html>

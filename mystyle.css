@@ -5,12 +5,13 @@
 
 #listContainer {
 	width: 300px;
-}
-
-#usersList {
 	margin-top: 15px;
 	list-style-type: none;
 	border: 1px solid #888;
+}
+
+#usersList {
+
 }
 
 #usersList a {
@@ -44,12 +45,12 @@
 	width: 33.6%;
 }
 
-#usersList #searchLi {
+#searchLi {
 	position: relative;
 	border-bottom: 1px solid #888;
 }
 
-#usersList #searchLi input {
+#searchLi input {
 	width: 85%;
 	margin: 0 auto;
 	position: relative;
@@ -58,7 +59,7 @@
 	padding-left: 35px;
 }
 
-#usersList #searchLi span {
+#searchLi span {
 	position: absolute;
 	display: block;
 	margin: 13px 0 0 31px;
