@@ -1,0 +1,72 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#listContainer {
+	width: 300px;
+}
+
+#usersList {
+	margin-top: 15px;
+	list-style-type: none;
+	border: 1px solid #888;
+}
+
+#usersList a {
+	text-decoration: none;
+	color: #555;
+}
+
+#usersList li {
+	display: block;
+	padding: 5px 0 5px 0;
+}
+
+#usersList > li:nth-child(1) {
+	padding: 0;
+	border: none;
+}
+
+#usersList li.bg-success:hover {
+	background-color: #9da;
+}
+
+#usersList li.bg-danger:hover {
+	background-color: #d9a;
+}
+
+#usersList .btn-group {
+	width: 85%;
+}
+
+#usersList .btn {
+	width: 33.6%;
+}
+
+#usersList #searchLi {
+	position: relative;
+	border-bottom: 1px solid #888;
+}
+
+#usersList #searchLi input {
+	width: 85%;
+	margin: 0 auto;
+	position: relative;
+	line-height: 20px;
+	border-radius: 20px;
+	padding-left: 35px;
+}
+
+#usersList #searchLi span {
+	position: absolute;
+	display: block;
+	margin: 13px 0 0 31px;
+	color: #888;
+}
+
+.logo {
+	width: 45px;
+	border-radius: 100%;
+	margin: 0 15px;
+}

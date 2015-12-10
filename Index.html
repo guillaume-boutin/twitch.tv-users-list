@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width initial-scale=1.0">
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap-theme.min.css">
+
+  <!-- My own CSS styling -->
+  <link rel="stylesheet" type="text/css" href="mystyle.css" />
+
+  <title>Twitch TV Users</title>
+
+</head>
+
+<body>
+
+<div class="container" id="listContainer">
+
+  <ul id="usersList">
+    <li class="text-center">
+      <div class="btn-group">
+        <button type="button" class="btn btn-default active" id="allButton" onclick="this.blur()";>All</button>
+        <button type="button" class="btn btn-success" id="onlineButton" onclick="this.blur()">Online</button>
+        <button type="button" class="btn btn-danger" id="offlineButton" onclick="this.blur()">Offline</button>
+      </div>
+    </li>
+    <li id="searchLi">
+      <input type="text" class="form-control" id="userSearch">
+      <span class="glyphicon glyphicon-search"></span>
+    </li>
+  </ul>
+</div>
+
+<!-- == END OF DOCUMENT CONTENT == -->
+
+<!-- jquery version 1.11.3 -->
+<script src="jquery-1.11.3/jquery-1.11.3.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+
+<!-- My own javascript -->
+<script src="myscript.js"></script>
+
+<script src="custom functions.js"></script>
+
+</body>
+</html>
