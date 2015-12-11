@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap-theme.min.css">
 
   <!-- My own CSS styling -->
-  <link rel="stylesheet" type="text/css" href="mystyle.css" />
+  <link rel="stylesheet" type="text/css" href="css/main.css" />
 
   <title>Twitch TV Users</title>
 
@@ -24,19 +24,29 @@
 
   <div class="text-center">
     <div class="btn-group">
-      <button type="button" class="btn btn-default active" id="allButton" onclick="this.blur()";>All</button>
-      <button type="button" class="btn btn-success" id="onlineButton" onclick="this.blur()">Online</button>
-      <button type="button" class="btn btn-danger" id="offlineButton" onclick="this.blur()">Offline</button>
+      <button type="button" class="btn btn-default" id="allButton" onclick="this.blur()"
+      ng-class="{'active': activeButton.all}" ng-click="toggle('all')">
+        All
+      </button>
+      <button type="button" class="btn btn-success" id="onlineButton" onclick="this.blur()"
+      ng-class="{'active': activeButton.online}" ng-click="toggle('online')">
+        Online
+      </button>
+      <button type="button" class="btn btn-danger" id="offlineButton" onclick="this.blur()"
+      ng-class="{'active': activeButton.offline}" ng-click="toggle('offline')">
+        Offline
+      </button>
     </div>
   </div>
-  <div id="searchLi">
-    <input type="text" class="form-control" id="userSearch">
+  <div id="searchDiv">
+    <input type="text" class="form-control" id="userSearch" ng-model="match">
     <span class="glyphicon glyphicon-search"></span>
   </div>
 
-  <ul id="usersList" ng-repeat="user in users">
-    <a ng-href="{{user.url}}">
-      <li>
+  <ul id="usersList">
+    <a ng-repeat="user in users | orderBy:'name' | filter:match" ng-href="{{user.url}}"
+    ng-class="{'hidden': (activeButton.online && !user.isOnline) || (activeButton.offline && user.isOnline)}">
+      <li ng-class="user.isOnline ? 'bg-success' : 'bg-danger'">
         <img ng-src="{{user.logo ? user.logo : 'images/anonymous_avatar.gif'}}" alt="logo" class="logo">
         <span>{{user.name}}</span>
       </li>

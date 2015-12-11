@@ -10,10 +10,6 @@
 	border: 1px solid #888;
 }
 
-#usersList {
-
-}
-
 #usersList a {
 	text-decoration: none;
 	color: #555;
@@ -37,20 +33,22 @@
 	background-color: #d9a;
 }
 
-#usersList .btn-group {
+.btn-group {
 	width: 85%;
 }
 
-#usersList .btn {
+.btn-group .btn {
 	width: 33.6%;
 }
 
-#searchLi {
+#searchDiv {
+	display: block;
+	padding: 5px 0 5px 0;
 	position: relative;
 	border-bottom: 1px solid #888;
 }
 
-#searchLi input {
+#searchDiv input {
 	width: 85%;
 	margin: 0 auto;
 	position: relative;
@@ -59,7 +57,7 @@
 	padding-left: 35px;
 }
 
-#searchLi span {
+#searchDiv span {
 	position: absolute;
 	display: block;
 	margin: 13px 0 0 31px;

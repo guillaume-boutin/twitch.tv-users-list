@@ -12,7 +12,8 @@ var app = angular.module("twitchApp", [])
       "noobs2ninjas",
       "beohoff",
       "MedryBW",
-      "lifesaglitchtv"
+      "lifesaglitchtv",
+      "lagtvmaximusblack"
     ];
 
     var count=0;
@@ -23,18 +24,16 @@ var app = angular.module("twitchApp", [])
       $http.get('https://api.twitch.tv/kraken/users/'+username)
         .success(function(userData) {
 
-          console.log(userData["display_name"]);
-
           $http.get('https://api.twitch.tv/kraken/streams/'+username)
             .success(function(streamData) {
-              console.log(userData["logo"]);
               $scope.users.push(
                 {
                   "name": userData["display_name"],
                   "logo": userData["logo"],
                   "url": "http://www.twitch.tv/"+username,
-                  "isonline": streamData["stream"] ? true : false
+                  "isOnline": streamData["stream"] ? true : false
                 });
+                console.log(userData["display_name"]+' is '+ (streamData["stream"] ? "online" : "offline"));
             })
               .error(function(err) {
 
@@ -46,20 +45,17 @@ var app = angular.module("twitchApp", [])
         });
     })
 
-  }])
+    $scope.activeButton = {
+      "all": true,
+      "online": false,
+      "offline": false
+    }
 
-  // .factory('getUsers', ['$http', '$scope', function($http, $scope) {
-  //
-  //   $scope.userNames.forEach( function(username) {
-  //
-  //     $http.get('https://api.twitch.tv/kraken/users/'+username)
-  //       .success(function(data) {
-  //         $scope.users.push({"name": data["display_name"]});
-  //       })
-  //         .error(function(err) {
-  //
-  //       });
-  //
-  //   });
-  //
-  // }]);
+    $scope.toggle = function(buttonClicked) {
+      $scope.activeButton.all = false;
+      $scope.activeButton.online = false;
+      $scope.activeButton.offline = false;
+      $scope.activeButton[buttonClicked] = true;
+    }
+
+  }])
